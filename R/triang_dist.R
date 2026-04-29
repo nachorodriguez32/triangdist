@@ -90,6 +90,7 @@ qtriang <- function(p, min, max, mode) {
 #' @param mode mode of the distribution.
 #'
 #' @return A numeric vector of random deviates.
+#' @importFrom stats runif
 #' @export
 rtriang <- function(n, min, max, mode) {
   if (any(min > max)) stop("Error: min cannot be greater than max.")
