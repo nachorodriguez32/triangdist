@@ -11,6 +11,10 @@
 #'
 #' @return A numeric vector of densities.
 #' @export
+#' @examples
+#' @seealso \code{\link{dtriang}}
+#' dtriang(0.5, min = 0, max = 1, mode = 0.5)
+#' dtriang(c(0.2, 0.5, 0.8), min = 0, max = 1, mode = 0.3)
 dtriang <- function(x, min, max, mode) {
 
   if (any(min > max)) stop("Error: min cannot be greater than max.")
@@ -41,6 +45,10 @@ dtriang <- function(x, min, max, mode) {
 #'
 #' @return A numeric vector of probabilities.
 #' @export
+#' @examples
+#' @seealso \code{\link{ptriang}}
+#' ptriang(0.5, min = 0, max = 1, mode = 0.5)
+#' ptriang(c(0.2, 0.5, 0.8), min = 0, max = 1, mode = 0.3)
 ptriang <- function(q, min, max, mode) {
   if (any(min > max)) stop("Error: min cannot be greater than max.")
   if (any(mode < min | mode > max)) stop("Error: mode must be between min and max.")
@@ -66,6 +74,10 @@ ptriang <- function(q, min, max, mode) {
 #'
 #' @return A numeric vector of quantiles.
 #' @export
+#' @examples
+#' @seealso \code{\link{qtriang}}
+#' qtriang(0.5, min = 0, max = 1, mode = 0.5)
+#' qtriang(c(0.25, 0.5, 0.75), min = 0, max = 1, mode = 0.3)
 qtriang <- function(p, min, max, mode) {
   if (any(min > max)) stop("Error: min cannot be greater than max.")
   if (any(mode < min | mode > max)) stop("Error: mode must be between min and max.")
@@ -84,7 +96,8 @@ qtriang <- function(p, min, max, mode) {
 #'
 #' @description Generates random deviates from the triangular distribution.
 #'
-#' @param n number of observations. If length(n) > 1, the length is taken to be the number required.
+#' @param n number of observations to generate. Must be a positive integer. 
+#'   If \code{length(n) > 1}, the length of the vector is used instead.
 #' @param min lower limit of the distribution.
 #' @param max upper limit of the distribution.
 #' @param mode mode of the distribution.
@@ -92,6 +105,10 @@ qtriang <- function(p, min, max, mode) {
 #' @return A numeric vector of random deviates.
 #' @importFrom stats runif
 #' @export
+#' @examples
+#' @seealso \code{\link{rtriang}}
+#' set.seed(42)
+#' rtriang(5, min = 0, max = 1, mode = 0.5)
 rtriang <- function(n, min, max, mode) {
   if (any(min > max)) stop("Error: min cannot be greater than max.")
   if (any(mode < min | mode > max)) stop("Error: mode must be between min and max.")
